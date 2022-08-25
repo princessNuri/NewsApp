@@ -1,5 +1,6 @@
 package com.example.newsapp.ui.onboard
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +9,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.newsapp.R
 import com.example.newsapp.databinding.FragmentBoardBinding
 import com.example.newsapp.databinding.PagerBoardBinding
+import com.example.newsapp.ui.Prefs
 
-class BoardAdapter(private var navController: NavController,private var _binding: FragmentBoardBinding): RecyclerView.Adapter<BoardAdapter.ViewHolder>() {
+class BoardAdapter(var context: Context,private var navController: NavController,private var _binding: FragmentBoardBinding)
+    : RecyclerView.Adapter<BoardAdapter.ViewHolder>() {
     private val boards= arrayListOf<Board>()
+    init {
+        boards.add(Board(R.drawable.board_picture_first,"Hello","Board 1"))
+        boards.add(Board(R.drawable.board_picture_forth,"Salam","Board 2"))
+        boards.add(Board(R.drawable.board_picture_fifth,"Privet","Board 3"))
+
+    }
     inner class ViewHolder(
         private var binding: PagerBoardBinding
     )
@@ -20,23 +29,22 @@ class BoardAdapter(private var navController: NavController,private var _binding
             binding.textDescription.text = board.description
             binding.textTitle.text = board.title
             _binding.btnSkip.setOnClickListener {
-                navController.navigate(R.id.navigation_home)
+                val prefs=Prefs(context)
+                prefs.saveState()
+                navController.navigateUp()
             }
             binding.btnStart.setOnClickListener {
+                val prefs=Prefs(context)
+                prefs.saveState()
                 navController.navigateUp()
             }
             if (boards.lastIndexOf(board) == boards.lastIndex){
-                _binding.btnSkip.visibility = View.INVISIBLE
                 binding.btnStart.visibility = View.VISIBLE
             } else{
-                _binding.btnSkip.visibility = View.VISIBLE
                 binding.btnStart.visibility = View.INVISIBLE
             }
         }
 
-    }
-    fun add(board: Board) {
-        boards.add(board)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BoardAdapter.ViewHolder {

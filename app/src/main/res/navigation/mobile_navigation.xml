@@ -27,4 +27,9 @@
         android:name="com.example.newsapp.ui.onboard.BoardFragment"
         android:label="fragment_board"
         tools:layout="@layout/fragment_board" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.newsapp.ui.profile.ProfileFragment"
+        android:label="@string/profileLabel"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
