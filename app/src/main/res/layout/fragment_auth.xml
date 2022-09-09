@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="32dp">
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editPhone"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        app:prefixText="+996"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+        android:inputType="phone"
+        android:hint="Введите номер"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnGetCode"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Получить код"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editSMS"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:inputType="number"
+            android:hint="Введите SMS код"
+            android:layout_height="wrap_content"
+
+            android:layout_width="match_parent"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Продолжить"/>
+
+
+
+</LinearLayout>

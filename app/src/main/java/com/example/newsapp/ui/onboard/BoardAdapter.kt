@@ -15,9 +15,9 @@ class BoardAdapter(var context: Context,private var navController: NavController
     : RecyclerView.Adapter<BoardAdapter.ViewHolder>() {
     private val boards= arrayListOf<Board>()
     init {
-        boards.add(Board(R.drawable.board_picture_first,"Hello","Board 1"))
-        boards.add(Board(R.drawable.board_picture_forth,"Salam","Board 2"))
-        boards.add(Board(R.drawable.board_picture_fifth,"Privet","Board 3"))
+        boards.add(Board(R.raw.lottie_hello,"Hello)","Board 1"))
+        boards.add(Board(R.raw.lottie_welcome,"Welcome!","Board 2"))
+        boards.add(Board(R.raw.lottie_news,"Let's get started!","Board 3"))
 
     }
     inner class ViewHolder(
@@ -25,7 +25,7 @@ class BoardAdapter(var context: Context,private var navController: NavController
     )
         : RecyclerView.ViewHolder(binding.root) {
         fun bind(board: Board) {
-            binding.imageview.setImageResource(board.image)
+            binding.animationView.setAnimation(board.image)
             binding.textDescription.text = board.description
             binding.textTitle.text = board.title
             _binding.btnSkip.setOnClickListener {

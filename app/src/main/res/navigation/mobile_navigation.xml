@@ -32,4 +32,13 @@
         android:name="com.example.newsapp.ui.profile.ProfileFragment"
         android:label="@string/profileLabel"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.example.newsapp.ui.news.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" />
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.example.newsapp.auth.AuthFragment"
+        android:label="AuthFragment" />
 </navigation>
